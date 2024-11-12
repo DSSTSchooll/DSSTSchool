@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSST School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+</head>
+<body>
+    <div id="app-container">
+        <div id="editor-container">
+            <h1 align="center">DSST School - Code Editor</h1>
+            <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+            <div id="controls">
+                <select id="language-selector" onchange="changeLanguage()" title="Select Language">
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="htmlmixed">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                    <option value="php">PHP</option>
+                    <!-- Add other languages here -->
+                </select>
+                <input type="text" id="comment-input" placeholder="Enter a comment for this version..." title="Add a comment for this version" />
+                <button id="save-button" onclick="saveCode()" disabled title="Save the code">Save</button>
+                <button onclick="downloadCode()" title="Download the code as a file">Download</button>
+            </div>
+            <div id="loading-indicator" style="display:none;">Saving...</div>
+        </div>
+
+        <div id="history-container">
+            <h2>History</h2>
+            <div id="history"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/java/java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/php/php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

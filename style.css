@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffefe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('bg.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+}
+
+#app-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+#editor-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#history-container {
+    flex: 1;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    overflow-y: auto;
+    max-height: 50%;
+}
+
+textarea, .CodeMirror {
+    width: 100%;
+    height: calc(100% - 60px);
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#controls select, #controls input {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+#controls button:hover {
+    background-color: #0056b3;
+}
+
+#controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.save-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745; /* Зеленый цвет */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 9999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Немного тени */
+}
+
+#history-container h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+#history {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавное изменение фона и текста */
+}
+
+.history-item:hover {
+    background-color: #515151;  /* Серый фон при наведении */
+    color: white;            /* Белый текст при наведении */
+}
+
+.history-item:hover strong,
+.history-item:hover span,
+.history-item:hover .history-comment {
+    color: white;            /* Белый цвет текста в подэлементах при наведении */
+}
+
+.history-item.selected {
+    background-color: #e0e0e0;
+}
+
+.history-item strong {
+    display: block;
+    font-size: 16px;
+}
+
+.history-item span {
+    font-size: 14px;
+    color: #666;
+}
+
+.history-item .history-comment {
+    font-size: 14px;
+    color: #333;
+}
+
+#loading-indicator {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    #app-container {
+        flex-direction: column;
+        height: 100%;
+    }
+    #history-container {
+        max-height: 60%;
+    }
+}
