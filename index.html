@@ -24,16 +24,23 @@
                     <option value="php">PHP</option>
                     <!-- Add other languages here -->
                 </select>
-                <input type="text" id="comment-input" placeholder="Enter a comment for this version..." title="Add a comment for this version" />
-                <button id="save-button" onclick="saveCode()" disabled title="Save the code">Save</button>
+                <div>
+                    <label for="user-name">Your Name:</label>
+                    <input type="text" id="user-name" placeholder="Enter your name" />
+                </div>
+                <div>
+                    <label for="comment-input">Comment:</label>
+                    <input type="text" id="comment-input" placeholder="Enter your comment" />
+                </div>
+                <button id="save-button" onclick="saveCode()">Save</button>
                 <button onclick="downloadCode()" title="Download the code as a file">Download</button>
             </div>
             <div id="loading-indicator" style="display:none;">Saving...</div>
         </div>
 
-        <div id="history-container">
-            <h2>History</h2>
-            <div id="history"></div>
+        <!-- Правая колонка: история изменений -->
+        <div class="history-container" id="history">
+            <!-- История будет загружаться сюда динамически -->
         </div>
     </div>
 
