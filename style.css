@@ -88,7 +88,7 @@ textarea, .CodeMirror {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #28a745; /* Зеленый цвет */
+    background-color: rgba(92, 197, 115, 0.65); /* Зеленый цвет */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
