@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSST School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+</head>
+<body>
+    <div id="app-container">
+        <div id="editor-container">
+            <h1 align="center">DSST School - Code Editor</h1>
+            <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+            <div id="controls">
+                <select id="language-selector" onchange="changeLanguage()" title="Select Language">
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="htmlmixed">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                    <option value="php">PHP</option>
+                    <!-- Add other languages here -->
+                </select>
+                <div>
+                    <label for="user-name">Your Name:</label>
+                    <input type="text" id="user-name" placeholder="Enter your name" />
+                </div>
+                <div>
+                    <label for="comment-input">Comment:</label>
+                    <input type="text" id="comment-input" placeholder="Enter your comment" />
+                </div>
+                <button id="save-button" onclick="saveCode()">Save</button>
+                <button onclick="downloadCode()" title="Download the code as a file">Download</button>
+            </div>
+            <div id="loading-indicator" style="display:none;">Saving...</div>
+        </div>
+
+        <!-- Правая колонка: история изменений -->
+        <div class="history-container" id="history">
+            <!-- История будет загружаться сюда динамически -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/java/java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/php/php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
