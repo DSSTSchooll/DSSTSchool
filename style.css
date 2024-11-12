@@ -109,40 +109,29 @@ textarea, .CodeMirror {
 }
 
 .history-item {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Плавное изменение фона и текста */
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
 }
 
 .history-item:hover {
-    background-color: #515151;  /* Серый фон при наведении */
-    color: white;            /* Белый текст при наведении */
-}
-
-.history-item:hover strong,
-.history-item:hover span,
-.history-item:hover .history-comment {
-    color: white;            /* Белый цвет текста в подэлементах при наведении */
-}
-
-.history-item.selected {
-    background-color: #e0e0e0;
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #3e3b3b;
 }
 
 .history-item strong {
-    display: block;
-    font-size: 16px;
+    font-size: 1.2em;
 }
 
 .history-item span {
-    font-size: 14px;
-    color: #666;
-}
-
-.history-item .history-comment {
-    font-size: 14px;
-    color: #333;
+    font-size: 0.9em;
+    color: #555;
 }
 
 #loading-indicator {
