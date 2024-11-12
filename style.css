@@ -94,7 +94,7 @@ textarea, .CodeMirror {
     border-radius: 5px;
     font-size: 16px;
     z-index: 9999;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Немного тени */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Немного тени */
 }
 
 #history-container h2 {
@@ -108,10 +108,17 @@ textarea, .CodeMirror {
     flex-direction: column;
 }
 
+.history-user-name {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+    font-style: italic;
+}
+
 .history-item {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.34);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
