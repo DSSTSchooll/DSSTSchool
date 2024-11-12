@@ -1,6 +1,4 @@
 let editor, codeMirrorEditor;
-let editors = {};
-let currentTab = 'file1';
 const historyContainer = document.getElementById('history');
 const saveButton = document.getElementById('save-button');
 const loadingIndicator = document.getElementById('loading-indicator');
@@ -42,13 +40,20 @@ function changeLanguage() {
 function saveCode() {
     const code = codeMirrorEditor.getValue();
     const comment = commentInput.value.trim();
+    const userName = document.getElementById('user-name').value.trim(); // Получаем имя пользователя
 
     if (code) {
         const timestamp = new Date();
         localStorage.setItem('currentCode', code);
 
+        // Создаем объект для истории
         const history = JSON.parse(localStorage.getItem('codeHistory')) || [];
-        history.unshift({ code, timestamp: timestamp.toLocaleString(), comment });
+        history.unshift({
+            code,
+            timestamp: timestamp.toLocaleString(),
+            comment,
+            userName: userName || 'Anonymous', // Если имя не введено, ставим 'Anonymous'
+        });
         localStorage.setItem('codeHistory', JSON.stringify(history));
 
         showLoading(true);
@@ -58,14 +63,13 @@ function saveCode() {
             saveButton.disabled = true;
             loadHistory();
 
-            // Очистка редактора после сохранения
-            codeMirrorEditor.setValue("");  // Очищаем содержимое редактора
-
-            // Очистка комментария, если нужно
-            commentInput.value = "";
+            // Очистка редактора и комментариев
+            codeMirrorEditor.setValue("");  // Очищаем редактор
+            commentInput.value = ""; // Очищаем поле комментария
+            document.getElementById('user-name').value = ""; // Очищаем поле имени
 
             // Показать уведомление о сохранении
-            showSaveNotification();  // Вызов уведомления
+            showSaveNotification();
         }, 1000);
     }
 }
@@ -95,6 +99,7 @@ function loadHistory() {
         div.innerHTML = `
             <strong>Revision #${history.length - index}</strong>
             <span>${entry.timestamp}</span>
+            <div class="history-user-name"><strong>By: </strong>${entry.userName}</div> <!-- Добавляем имя пользователя -->
             <div contenteditable="true" class="history-comment">${entry.comment || 'No comment'}</div>
         `;
 
@@ -137,4 +142,3 @@ function showLoading(isLoading) {
         loadingIndicator.style.display = 'none';
     }
 }
-
