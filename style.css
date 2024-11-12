@@ -97,6 +97,15 @@ textarea, .CodeMirror {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Немного тени */
 }
 
+#history {
+    max-height: 300px; /* Задаем максимальную высоту */
+    overflow-y: auto;  /* Добавляем вертикальную прокрутку, если содержимое превышает высоту */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
 #history-container h2 {
     margin-top: 0;
     font-size: 20px;
