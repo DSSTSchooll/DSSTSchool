@@ -77,7 +77,7 @@ function saveCode() {
 }
 
 function saveToGoogleSheets(code, comment, userName, timestamp) {
-    const url = 'https://script.google.com/macros/s/AKfycbw39jefqhstw7dbfvUqS7lbfAzs0ob6drbXoZuPw8SucM3hPwIicmP6-loAt2k7EO4/exec';
+    const url = 'https://script.google.com/macros/s/AKfycbx7N8NtF8ylVDkNoNyy0aU5iiGEIZYLnBF0BfdpnO_ud9heOSDLSiGkY7LV2mthfXjk/exec';
 
     const data = {
         code: code,
