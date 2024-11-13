@@ -54,6 +54,7 @@ textarea, .CodeMirror {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 #controls select, #controls input {
@@ -157,12 +158,49 @@ textarea, .CodeMirror {
     margin-top: 10px;
 }
 
+/* Адаптация для устройств с шириной экрана меньше 768px */
 @media (max-width: 768px) {
     #app-container {
         flex-direction: column;
         height: 100%;
+        width: 100%;
+        padding: 10px;
     }
-    #history-container {
-        max-height: 60%;
+    #editor-container, #history-container {
+        width: 100%;
+        max-height: 50vh;
+    }
+    #controls {
+        flex-direction: column;
+        gap: 5px;
+    }
+    #controls select, #controls input, #controls button {
+        width: 100%;
+    }
+}
+
+/* Адаптация для устройств с шириной экрана меньше 480px */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    #app-container {
+        padding: 5px;
+    }
+    .save-notification {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    #controls select, #controls input, #controls button {
+        padding: 8px;
+        font-size: 14px;
+    }
+    .history-item strong {
+        font-size: 1em;
+    }
+    .history-item span, .history-user-name {
+        font-size: 0.8em;
     }
 }
